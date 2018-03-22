@@ -7,6 +7,10 @@
   float: left;
 }
 
+#heading{
+ margin-left: 50px;
+}
+
 #map {
   margin-left: 200px;
   margin-right: 50px; 

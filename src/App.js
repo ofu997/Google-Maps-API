@@ -2,6 +2,7 @@ import React from 'react';
 import './index.css';
 
 export default class App extends React.Component {
+  // structure: state, didMount, render left and right divs 
   constructor() {
     super();
     this.state = {
@@ -84,44 +85,42 @@ export default class App extends React.Component {
   render() {
     return (
       <div id='app'>
-        <div id='state'>
+        <div id="heading">
+        <h3>Neighborhood explorer</h3>
+        </div>
+        <div id="state">
+          <LocationsDashboard />
           <p>
-            Zoom level: {this.state.zoom}<br />
+            zoom level: {this.state.zoom}
+            <br />
             Map type: {this.state.maptype}
-            <p>Place: {this.state.place_formatted}</p>
-            {/*<p>Place ID: {this.state.place_id}</p>*/}
-            <p>Location: {this.state.place_location}</p>
+            Place: {this.state.place_formatted}
+            Location: {this.state.place_location}
           </p>
         </div>
+
         <div id='pac-container'>
           <input id="pac-input" type="text" placeholder="enter a location"/>
         </div>
-        <div id='map' />
-      </div>
+
+        <div id='map' />{/*map*/}
+      </div>//app
     ); 
   } 
 };
 
-/*
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-class App extends Component {
+class LocationsDashboard extends React.Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className='ui three column centered grid'>
+        <div className='column'>
+        <EditableLocationList />
+        <ToggleableLocationForm />
+          isOpen={true}
+        />
+        </div>
       </div>
     );
   }
-}
+};
 
-export default App;
-*/
